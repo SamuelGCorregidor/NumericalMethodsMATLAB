@@ -6,7 +6,7 @@ integral = trapecio(0,1,2)
 % Integración de f(x) con la regla del trapecio compuesta entre 0 y 1 tomando 2 subintervalos (3 puntos)
 integral2 = simpson1_3(0,1,2)
 
-function s = trapecio(f,a,b,N)
+function s = trapecio(a,b,N)
     % Calculamos el paso
     h = (b-a)/N; 
 
@@ -21,7 +21,7 @@ function s = trapecio(f,a,b,N)
     s = h*s/2; 
 end
 
-function s = simpson1_3(f,a,b,N)
+function s = simpson1_3(a,b,N)
     % Calculamos el paso
     h = (b-a)/N;
     if rem(N,2) ~= 0

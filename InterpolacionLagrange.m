@@ -29,6 +29,6 @@ function L = Lagrange(x,y)
     % Definimos la matriz de Vandermonde
     V = fliplr(vander(x));
 
-    % Obtenemos la solución de Vx = b 
+    % Obtenemos la solución de Vx = y
     L = V\y;
 end

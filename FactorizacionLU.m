@@ -1,3 +1,4 @@
+% MATLAB incluye la función lu(A) para calcular esta factorización
 clear; clc;
 
 % Matriz que vamos a factorizar

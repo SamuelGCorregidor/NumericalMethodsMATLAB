@@ -9,6 +9,7 @@ U = cholesky(A);
 % Comprobamos que la factorización es correcta:
 U * U' - A
 
+
 function U = cholesky(A)
     %% A matriz hermítica y definida positiva
     %% U matriz triangular inferior con diagonal positiva
@@ -27,16 +28,8 @@ function U = cholesky(A)
     U(1,1) = sqrt(A(1,1));
     for i = 2:n
         for j = 1:(i-1)
-            suma = 0;
-            for s = 1:(j-1)
-                suma = suma + U(i,s)*U(j,s);
-            end
-            U(i,j)=(A(i,j) - suma)/U(j,j);
+            U(i,j)=(A(i,j) - U(i,1:(j-1)) * U(j,1:(j-1)).')/U(j,j);
         end
-        suma = 0;
-        for k = 1:(i-1)
-            suma = suma + U(i,k)^2;
-        end
-        U(i,i) = sqrt(A(i,i) - suma);
+        U(i,i) = sqrt(A(i,i) - U(i,1:(i-1)) * U(i,1:(i-1)).');
     end
 end
